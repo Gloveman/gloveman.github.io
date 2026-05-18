@@ -1,0 +1,39 @@
+baseURL = 'https://gloveman.github.io/'
+languageCode = 'ko-kr'
+title = 'gloveman의 포트폴리오'
+theme = 'PaperMod'
+
+[params]
+    env = 'production'
+    title = 'gloveman'
+    description = '안녕하세요, gloveman의 포트폴리오 사이트입니다.'
+    author = 'gloveman'
+
+    [params.profileMode]
+        enabled = true
+        title = 'gloveman'
+        subtitle = 'AI / Backend Developer'
+        imageUrl = ''
+        imageTitle = 'gloveman'
+        imageWidth = 120
+        imageHeight = 120
+        buttons = [
+            { name = 'Blog', url = 'posts' },
+            { name = 'Projects', url = 'projects' }
+        ]
+
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/gloveman"
+
+[menu]
+    [[menu.main]]
+        identifier = 'posts'
+        name = 'Posts'
+        url = '/posts/'
+        weight = 10
+    [[menu.main]]
+        identifier = 'projects'
+        name = 'Projects'
+        url = '/projects/'
+        weight = 20
