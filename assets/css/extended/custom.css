@@ -331,3 +331,24 @@ body {
     margin-bottom: 0.7rem;
 }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* ── 6. Mermaid Diagrams Styling ────────────────────────────── */
+.mermaid {
+    background: #ffffff !important;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    width: 100%;
+}
+.mermaid svg {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+
