@@ -1,0 +1,33 @@
+{{- define "main" }}
+{{- $pages := .Pages | sort "Date" "desc" }}
+
+<div class="projects-hero">
+  <h1 class="projects-hero-title">{{ .Title }}</h1>
+  <p class="projects-hero-desc">{{ .Description }}</p>
+</div>
+
+<div class="projects-grid">
+  {{- range $pages }}
+  {{- $tags := .Params.tags }}
+  <a href="{{ .RelPermalink }}" class="project-card">
+    <div class="project-card-inner">
+      <div class="project-card-header">
+        <h2 class="project-card-title">{{ .Title }}</h2>
+        <time class="project-card-date">{{ .Date.Format "2006.01" }}</time>
+      </div>
+      <p class="project-card-desc">{{ .Description }}</p>
+      {{- if $tags }}
+      <div class="project-card-tags">
+        {{- range $tags }}
+        <span class="project-tag">{{ . }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+      <div class="project-card-footer">
+        <span class="project-card-cta">자세히 보기 <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>
+  </a>
+  {{- end }}
+</div>
+{{- end }}
