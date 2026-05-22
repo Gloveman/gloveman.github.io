@@ -1,5 +1,5 @@
 {{- define "main" }}
-{{- $pages := .Pages | sort "Date" "desc" }}
+{{- $pages := .Pages.ByDate.Reverse }}
 
 <div class="projects-hero">
   <h1 class="projects-hero-title">{{ .Title }}</h1>
