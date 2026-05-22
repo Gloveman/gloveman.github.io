@@ -1,6 +1,6 @@
 ---
 title: "Multi-Hop RAG 파이프라인 실험실"
-date: 2026-05-23
+date: 2026-05-22
 description: "FAISS GPU, Cross-Encoder Reranking 및 T5 요약을 결합한 고성능 Multi-Hop RAG 실험 플랫폼"
 tags: ["NLP", "RAG", "FAISS", "Cross-Encoder", "FLAN-T5", "PyTorch"]
 categories: ["Project"]
