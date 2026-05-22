@@ -1,5 +1,5 @@
 {{- define "main" }}
-{{- $pages := .Pages.ByDate.Reverse }}
+{{- $pages := (where .Pages "Params.categories" "intersect" (slice "Project")).ByDate.Reverse }}
 
 <div class="projects-hero">
   <h1 class="projects-hero-title">{{ .Title }}</h1>
