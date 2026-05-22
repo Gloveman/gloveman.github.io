@@ -47,3 +47,9 @@
 - [x] 3차/4차 프로젝트 하단 외부 위키 링크("더 보기") 마크다운 삽입 완료
 - [x] 향후 관리용 [PORTFOLIO_GUIDE.md](file:///e:/gloveman.github.io/PORTFOLIO_GUIDE.md) 가이드 문서 작성
 - [x] 모든 변경 사항 Git 커밋 및 Push 완료 (`git push`)
+
+## Phase 9 — 자동 Push 및 타 컴퓨터 동기화 보강
+- [x] 자동 push를 지원하는 `.githooks/post-commit` 생성
+- [x] `PORTFOLIO_GUIDE.md` 파일에 post-commit 및 자동 push 가이드 업데이트
+- [x] 전체 변경 사항 커밋 및 push 확인 (pre-commit에 의한 `.antigravity/` 싱크 및 post-commit에 의한 자동 push 확인 완료)
+

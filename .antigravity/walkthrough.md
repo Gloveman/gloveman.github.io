@@ -28,6 +28,8 @@ This document summarizes the changes made to resolve issues with the Hugo portfo
 - **Content Maintenance Guide**: Created a step-by-step Korean instructions manual [PORTFOLIO_GUIDE.md](file:///e:/gloveman.github.io/PORTFOLIO_GUIDE.md) in the workspace root detailing how to edit and add projects, update the resume YAML, and perform builds and deployments.
 - **Project README**: Created [README.md](file:///e:/gloveman.github.io/README.md) at the root of the workspace to introduce the repository, outline its features, and link to the maintenance guide.
 - **Agent Context Persistence**: Created [`.antigravity/`](file:///e:/gloveman.github.io/.antigravity) folder at the repository root and copied all the planning/design artifacts (`implementation_plan.md`, `task.md`, `walkthrough.md`, `portfolio_projects.md`) to guarantee that future Antigravity sessions on other machines can seamlessly load and understand the history of this workspace.
+- **Auto-push Git Hook**: Created `.githooks/post-commit` to automatically push changes to the remote branch after a commit, facilitating seamless GitHub synchronization.
+- **Guide Updates**: Updated `PORTFOLIO_GUIDE.md` with instructions on how to set up the hooks and command guidelines for new computers.
 
 ## Verification & Status
 
@@ -41,4 +43,6 @@ This document summarizes the changes made to resolve issues with the Hugo portfo
   - `docs: add portfolio maintenance and content modification guide`
   - `docs: add README with introduction and links to maintenance guide`
   - `chore: save agent context and planning artifacts in repository`
+  - `chore: add post-commit hook for auto-pushing to remote`
 - All local commits have been pushed successfully to the remote `main` branch.
+
