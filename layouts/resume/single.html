@@ -1,0 +1,142 @@
+{{- define "main" }}
+{{- $resume := .Site.Data.resume }}
+
+<article class="resume-wrapper">
+
+  {{/* ── Header ─────────────────────────────────────────── */}}
+  <header class="resume-header">
+    <h1 class="resume-name">{{ $resume.name }}</h1>
+    <div class="resume-subtitle">{{ $resume.subtitle }}</div>
+    <div class="resume-contact">
+      <a href="mailto:{{ $resume.contact.email }}" class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>{{ $resume.contact.email }}</span>
+      </a>
+      <a href="{{ $resume.contact.github }}" target="_blank" rel="noopener" class="contact-item">
+        <i class="fab fa-github"></i>
+        <span>github.com/gloveman</span>
+      </a>
+      <a href="{{ $resume.contact.website }}" class="contact-item">
+        <i class="fas fa-globe"></i>
+        <span>gloveman.github.io</span>
+      </a>
+      <span class="contact-item">
+        <i class="fas fa-university"></i>
+        <span>{{ $resume.contact.education_short }}</span>
+      </span>
+    </div>
+  </header>
+
+  {{/* ── Two-column grid ──────────────────────────────────── */}}
+  <div class="resume-grid">
+
+    {{/* ── Sidebar ─────────────────────────────────────── */}}
+    <aside class="resume-sidebar">
+
+      {{/* About */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-user"></i> About Me</h2>
+        <p>{{ $resume.about }}</p>
+      </section>
+
+      {{/* Skills */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-tools"></i> Skills</h2>
+        {{- range $resume.skills }}
+        <div class="skill-group">
+          <h3 class="skill-group-title">{{ .group }}</h3>
+          <div class="skill-tags">
+            {{- range .tags }}
+            <span class="skill-tag">{{ . }}</span>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+      </section>
+
+      {{/* Credentials */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-certificate"></i> Credentials</h2>
+        {{- range $resume.credentials }}
+        <div class="timeline-item">
+          <div class="timeline-title">{{ .title }}</div>
+          <div class="timeline-date">{{ .org }}</div>
+        </div>
+        {{- end }}
+      </section>
+
+      {{/* Education */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-graduation-cap"></i> Education</h2>
+        {{- range $resume.education }}
+        <div class="timeline-item">
+          <div class="timeline-title">{{ .title }}</div>
+          <div class="timeline-org">{{ .org }}</div>
+          <div class="timeline-date">{{ .date }}</div>
+        </div>
+        {{- end }}
+      </section>
+
+    </aside>
+
+    {{/* ── Main ────────────────────────────────────────── */}}
+    <main class="resume-main">
+
+      {{/* Key Projects */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-project-diagram"></i> Key Projects</h2>
+        <div class="timeline">
+          {{- range $resume.projects }}
+          <div class="timeline-item">
+            <div class="timeline-header">
+              {{- if .url }}
+              <a href="{{ .url }}" class="timeline-title-link">
+                <span class="timeline-title">{{ .title }}</span>
+              </a>
+              {{- else }}
+              <span class="timeline-title">{{ .title }}</span>
+              {{- end }}
+              <span class="timeline-date">{{ .date }}</span>
+            </div>
+            <div class="timeline-org">{{ .org }}</div>
+            <div class="timeline-desc">
+              <ul>
+                {{- range .bullets }}
+                <li>{{ . }}</li>
+                {{- end }}
+              </ul>
+            </div>
+          </div>
+          {{- end }}
+        </div>
+      </section>
+
+      {{/* Tech Activities */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-terminal"></i> Tech Activities</h2>
+        {{- range $resume.activities }}
+        <div class="resume-project-card">
+          <h3>{{ .title }}</h3>
+          <p>{{ .desc }}
+            {{- if .link }}
+            <a href="{{ .link }}" target="_blank" rel="noopener">[{{ .link_text }}]</a>
+            {{- end }}
+          </p>
+        </div>
+        {{- end }}
+      </section>
+
+      {{/* Achievements */}}
+      <section class="resume-section">
+        <h2 class="section-heading"><i class="fas fa-award"></i> Achievements</h2>
+        <ul class="achievements-list">
+          {{- range $resume.achievements }}
+          <li><strong>{{ .label }}</strong>: {{ .desc }}</li>
+          {{- end }}
+        </ul>
+      </section>
+
+    </main>
+  </div>
+</article>
+{{- end }}
