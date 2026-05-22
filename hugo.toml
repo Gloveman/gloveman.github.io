@@ -8,32 +8,57 @@ theme = 'PaperMod'
     title = 'gloveman'
     description = '안녕하세요, gloveman의 포트폴리오 사이트입니다.'
     author = 'gloveman'
+    # 다크 모드 버튼 활성화
+    ShowReadingTime = true
+    ShowShareButtons = true
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    ShowWordCount = true
+    ShowRssButtonInSectionTermList = true
+    UseHugoToc = true
 
     [params.profileMode]
         enabled = true
         title = 'gloveman'
-        subtitle = 'AI / Backend Developer'
-        imageUrl = ''
+        subtitle = '🚀 AI / Backend Developer | 지속적으로 성장하는 개발자'
+        imageUrl = 'https://github.com/gloveman.png'
         imageTitle = 'gloveman'
-        imageWidth = 120
-        imageHeight = 120
+        imageWidth = 180
+        imageHeight = 180
         buttons = [
-            { name = 'Blog', url = 'posts' },
+            { name = 'Resume', url = 'resume' },
             { name = 'Projects', url = 'projects' }
         ]
 
     [[params.socialIcons]]
         name = "github"
         url = "https://github.com/gloveman"
+    [[params.socialIcons]]
+        name = "email"
+        url = "mailto:bule3306@naver.com"
 
 [menu]
     [[menu.main]]
-        identifier = 'posts'
-        name = 'Posts'
-        url = '/posts/'
-        weight = 10
+        identifier = 'resume'
+        name = 'Resume'
+        url = '/resume/'
+        weight = 5
     [[menu.main]]
         identifier = 'projects'
         name = 'Projects'
         url = '/projects/'
+        weight = 10
+    [[menu.main]]
+        identifier = 'search'
+        name = 'Search'
+        url = '/search/'
         weight = 20
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
