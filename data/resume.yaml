@@ -1,0 +1,94 @@
+name: 이창우 (gloveman)
+subtitle: "🚀 AI / Backend Developer | MLOps Enthusiast"
+
+contact:
+  email: bule3306@naver.com
+  github: https://github.com/gloveman
+  website: https://gloveman.github.io
+  education_short: POSTECH CSE
+
+about: |
+  지속적인 몰입을 통해 탄탄한 백엔드와 AI 아키텍처를 설계하고자 하는 개발자입니다.
+  POSTECH에서 컴퓨터공학을 전공하며 학문적 기초를 다졌고, 고성능 AI 서빙 및 MLOps를 통해 AI 모델을 실제 서비스 가치로 연결하는 과정에 집중하고 있습니다.
+
+skills:
+  - group: "AI & Data"
+    tags:
+      - PyTorch
+      - "RAG (LangChain)"
+      - XGBoost
+      - HuggingFace
+      - "FAISS / Pinecone"
+  - group: "Backend"
+    tags:
+      - "Python (FastAPI, Flask)"
+      - Node.js
+      - "MySQL / MongoDB"
+      - Docker
+
+credentials:
+  - title: "PCCE Level 4 (1000/1000)"
+    org: 프로그래머스
+  - title: "PCCP Level 3 (700/1000)"
+    org: 프로그래머스
+  - title: 빅데이터분석기사
+    org: 한국데이터산업진흥원
+  - title: "OPIc English (IH)"
+    org: ACTFL
+
+education:
+  - title: POSTECH
+    org: 컴퓨터공학과 (학사)
+    date: "2020.02 - 2026.02 (졸업예정)"
+  - title: SK네트웍스 AI 캠프
+    org: Family AI 캠프 26기
+    date: "2025.12 - 2026.06"
+
+projects:
+  - title: "Olfit: 퍼스널 향수 큐레이션"
+    date: "2026.04 - 2026.05"
+    org: SK네트웍스 AI 캠프 4차 프로젝트
+    url: /projects/olfit/
+    bullets:
+      - "VLM(NVIDIA NIM)과 RAG를 결합한 하이브리드 추천 엔진 설계"
+      - "Symmetric RAG 전략 도입으로 1,000개 이상의 데이터 검색 정밀도 최적화"
+      - "프론트엔드 레이스 컨디션 해결 및 In-flight guard 도입으로 안정성 강화"
+  - title: "Job Pocket: 자소서 피드백 서비스"
+    date: "2026.03 - 2026.04"
+    org: SK네트웍스 AI 캠프 3차 프로젝트
+    url: /projects/job-pocket/
+    bullets:
+      - "Keyword Match Rate 지표 설계 및 평가 엔진 구축"
+      - "FAISS + MySQL 하이브리드 검색 구조 설계로 고속 리트리벌 구현"
+      - "초안 재생성 로직 최적화를 통해 API 호출 비용 60% 절감"
+  - title: "튈까말까: OTT 고객 이탈 예측"
+    date: "2026.02 - 2026.03"
+    org: SK네트웍스 AI 캠프 2차 프로젝트
+    url: /projects/ott-churn/
+    bullets:
+      - "21만 건의 행동 로그에서 이탈 예측에 결정적인 16개 핵심 피처 추출"
+      - "XGBoost 모델 튜닝 및 임계값 최적화를 통해 PR-AUC 0.945 달성"
+      - "데이터 전처리부터 추론까지의 ML 파이프라인 전체 모듈화"
+  - title: 주변 주차장/주유소 조회 시스템
+    date: "2026.01 - 2026.02"
+    org: SK네트웍스 AI 캠프 1차 프로젝트
+    url: /projects/mobility-system/
+    bullets:
+      - "MySQL Spatial Query(MBRContains)를 활용한 고성능 반경 검색 로직 구현"
+      - "공공데이터(Static)와 실시간 API(Dynamic)를 결합한 하이브리드 데이터 설계"
+
+activities:
+  - title: Algorithm Engineering
+    desc: "단순 문제 풀이를 넘어, 해결을 위한 발상 과정과 최적화 단계를 체계적으로 기록하는 저장소 운영."
+    link: "https://github.com/gloveman"
+    link_text: "GitHub: Algorithm-Engineering"
+  - title: Technical Blogging
+    desc: "학습한 기술적 개념과 프로젝트 트러블슈팅 경험을 Velog에 기록하여 지식 공유 및 아카이빙 수행."
+
+achievements:
+  - label: 고성능 검색
+    desc: "공간 데이터 최적화를 통해 1초 미만 시설 검색 로직 구현"
+  - label: 비용 최적화
+    desc: "자소서 초안 재생성 파이프라인 최적화로 API 호출 비용 60% 절감"
+  - label: 역량 검증
+    desc: "프로그래머스 PCCE 만점 및 PCCP Level 3 취득"
