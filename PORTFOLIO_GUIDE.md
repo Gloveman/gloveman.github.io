@@ -137,10 +137,12 @@ git push origin main
 > "`.antigravity/` 폴더 내에 있는 `implementation_plan.md`, `task.md`, `walkthrough.md` 파일을 참조해서 이전 진행 상황과 설계 맥락을 먼저 완전히 분석해줘. 그리고 이어서 [원하는 작업 내용]을 진행해 주면 돼."
 
 ### 4.2. 아티팩트 자동 동기화 설정 (Git Hook)
-로컬 브레인의 실시간 진행 상황(`walkthrough.md`, `task.md` 등)이 수정될 때마다 자동으로 `.antigravity/` 디렉토리에 복사 및 스테이징되도록 Git Hook을 설정해 두었습니다.
+로컬 브레인의 실시간 진행 상황(`walkthrough.md`, `task.md` 등)이 수정될 때마다 자동으로 `.antigravity/` 디렉토리에 복사되고 GitHub에 push되도록 Git Hook을 설정해 두었습니다.
 새로운 기기에서 레포지토리를 다운받은 후, **최초 1회 아래 명령어를 터미널에 입력**하면 자동 동기화 기능이 활성화됩니다:
 ```bash
 git config core.hooksPath .githooks
 ```
-이후 `git commit` 명령어를 실행할 때마다 `sync_artifacts.ps1` 스크립트가 백그라운드에서 실행되어 현재 개발 세션 브레인 폴더의 최신 마크다운 파일들을 자동으로 복사하고 커밋 스테이지에 추가합니다.
+이 설정이 완료되면:
+1. `git commit` 명령어를 실행할 때, `pre-commit` 훅이 작동하여 로컬 브레인의 최신 마크다운 아티팩트들을 자동으로 `.antigravity/`에 복사하고 스테이징(`git add`)합니다.
+2. 커밋이 완료된 후 `post-commit` 훅이 연이어 작동하여, 현재 작업 중인 원격 브랜치로 자동으로 `git push`를 수행합니다.
 
