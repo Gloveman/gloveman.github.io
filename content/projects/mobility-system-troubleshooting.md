@@ -2,6 +2,7 @@
 title: "위치 기반 주차장 공간 검색 서비스 : Troubleshooting"
 date: 2026-02-06
 description: "대용량 거리 계산 병목 및 상태 전이 최적화 문제 해결"
+url: "/projects/mobility-system/troubleshooting/"
 ---
 
 ## 🚀 기술적 도전 및 문제 해결 (Technical Challenges & Troubleshooting)

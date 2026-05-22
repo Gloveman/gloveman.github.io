@@ -49,3 +49,4 @@ graph LR
 
 ### 🔍 관련 문서
 - [**Troubleshooting 상세 보기**](troubleshooting/) : VLM 비정형 결과 예외 처리 및 UI 비동기 레이스 컨디션 차단
+- [**프로젝트 Wiki 상세 보기 (더 보기)**](https://joraemon-s-secret-gadgets.github.io/olfit/) : 아우라 수식 연산 설계, 시맨틱 하이브리드 재정렬 알고리즘 상세 문서

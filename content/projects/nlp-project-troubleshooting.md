@@ -2,6 +2,7 @@
 title: "Multi-Hop RAG 파이프라인 실험실 : Troubleshooting"
 date: 2026-05-23
 description: "컨텍스트 할루시네이션 및 토큰 임계값 초과 문제 해결"
+url: "/projects/nlp-project/troubleshooting/"
 ---
 
 ## 🚀 기술적 도전 및 문제 해결 (Technical Challenges & Troubleshooting)

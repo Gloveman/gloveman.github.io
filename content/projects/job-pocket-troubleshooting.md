@@ -2,6 +2,7 @@
 title: "Job Pocket: RAG 기반 자기소개서 첨삭 및 피드백 서비스 : Troubleshooting"
 date: 2026-04-24
 description: "한국어 형태소 분석기 형태 결합 및 LLM 호출 비용 최적화 해결"
+url: "/projects/job-pocket/troubleshooting/"
 ---
 
 ## 🚀 기술적 도전 및 문제 해결 (Technical Challenges & Troubleshooting)
@@ -15,3 +16,13 @@ description: "한국어 형태소 분석기 형태 결합 및 LLM 호출 비용 
 - **문제 상황 (Symptom)**: LangGraph 기반의 6단계 에이전트 루프가 완전히 실행되는 동안, 매 단계마다 고성능 LLM(GPT-4o)을 순차적으로 다중 호출하게 되면서 단일 분석 요청 당 응답 대기 시간이 10~15초 이상으로 늘어나고 API 요금이 과다 청구됨.
 - **원인 분석 (Root Causes)**: 텍스트의 분류(Classification), 키워드 유무 판단, 포맷 변경 등 고도의 논리력이 필요치 않은 단순 가공 업무까지 전부 고비용의 프론티어 LLM 단일 모델로만 처리하고 있었음.
 - **해결 방안 (Solution)**: **하이브리드 LLM 라우팅 아키텍처(Hybrid LLM Routing)**를 도입함. 단순 데이터 스키마 검증, 프롬프트 전처리, 문장 포맷 확인 등 경량화 노드는 **Groq 클라우드의 Llama3-8b 고속 API** 또는 **로컬 Ollama로 로드한 소형 LLM(SLM)**으로 라우팅하여 처리 속도를 높이고, 최종 문장 첨삭과 정교한 피드백 리포트 작성 단계에만 **GPT-4o-mini**를 호출하도록 분기 배포하여 API 청구 비용을 약 **60% 절감**함.
+
+### 3. 비대해진 단일 파일 구조(God Object)로 인한 유지보수성 및 테스트 독립성 상실
+- **문제 상황 (Symptom)**: 초기 프로토타이핑 단계에서 생성 엔진의 핵심 비즈니스 로직(파싱, RAG 검색, EXAONE 생성, 평가 등)이 `chat_logic.py` 단일 파일에 전부 몰리면서 코드 라인수가 1,000줄을 돌파하여 프롬프트 수정 시 엉뚱한 로직의 오작동 및 사이드 이펙트가 빈번히 발생함.
+- **원인 분석 (Root Causes)**: 관심사 분리(Separation of Concerns)가 적용되지 않아 데이터 가공, 데이터베이스 액세스, LLM 오케스트레이션이 강하게 결합됨.
+- **해결 방안 (Solution)**: **오케스트레이터 패턴**을 도입하고 파일 구조를 쪼갬. `chat_logic.py`는 오케스트레이팅 역할만 전담하게 하고, 세부 로직은 `services/chat/` 폴더 산하의 `parser.py` (요청 구조화), `generator.py` (초안 생성), `evaluator.py` (품질 검증 및 조립) 등으로 독립 컴포넌트화하여 유닛 테스트와 병렬 유지보수가 가능하도록 설계함.
+
+### 4. RunPod Serverless GPU API 호출 시의 비동기-동기 브릿징 실패 및 대기 문제
+- **문제 상황 (Symptom)**: EXAONE 3.5 LLM 호출을 위해 RunPod Serverless GPU 인스턴스를 요청했을 때, 즉시 생성 텍스트가 응답되지 않고 작업 ID(job_id)만 우선 수신되어 FastAPI 서버가 빈 값 또는 작업 상태 JSON만을 응답하는 오작동 발생.
+- **원인 분석 (Root Causes)**: Serverless GPU 환경의 콜드 스타트 및 분산 큐잉 처리가 비동기로 일어나기 때문에, 동기식 API 대기 패턴으로는 결과가 반환되기 전에 연결이 끊어지거나 미완성 데이터를 읽어 들이게 됨.
+- **해결 방안 (Solution)**: **비동기 폴링 루프(Polling Loop) 및 Zero-wait Response 가드** 구현. FastAPI 단에서 `asyncio` 기반의 폴링 루프를 열어, RunPod에 요청을 밀어 넣은 뒤 상태가 `COMPLETED`로 전환될 때까지 매 2초 단위로 작업 상태를 체크함. 또한 첫 요청 단계에서 연산이 즉시 완료되었을 경우 대기 없이 바로 리턴하는 지름길(Zero-wait) 조건을 추가해 레이턴시를 제어함.

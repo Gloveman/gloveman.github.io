@@ -2,6 +2,7 @@
 title: "OTT 사용자 이탈(Churn) 예측 머신러닝 파이프라인 : Troubleshooting"
 date: 2026-02-28
 description: "모델 직렬화 불일치 및 불균형 데이터 임계값 최적화 해결"
+url: "/projects/ott-churn/troubleshooting/"
 ---
 
 ## 🚀 기술적 도전 및 문제 해결 (Technical Challenges & Troubleshooting)

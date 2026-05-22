@@ -47,3 +47,4 @@ graph TD
 
 ### 🔍 관련 문서
 - [**Troubleshooting 상세 보기**](troubleshooting/) : 한국어 토큰 형태소 분석기 우회 및 LLM 하이브리드 라우팅 최적화
+- [**프로젝트 Wiki 상세 보기 (더 보기)**](https://joraemon-s-secret-gadgets.github.io/job-pocket) : 상세 아키텍처, RAG 파이프라인 수식 및 평가 모듈 설계 문서
