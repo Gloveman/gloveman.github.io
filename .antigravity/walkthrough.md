@@ -27,6 +27,7 @@ This document summarizes the changes made to resolve issues with the Hugo portfo
 - **Wiki Links Integration**: Added external markdown wiki links ("더 보기") to `content/projects/job-pocket/index.md` and `content/projects/olfit/index.md` at the end of the project overview under the `🔍 관련 문서` header.
 - **Content Maintenance Guide**: Created a step-by-step Korean instructions manual [PORTFOLIO_GUIDE.md](file:///e:/gloveman.github.io/PORTFOLIO_GUIDE.md) in the workspace root detailing how to edit and add projects, update the resume YAML, and perform builds and deployments.
 - **Project README**: Created [README.md](file:///e:/gloveman.github.io/README.md) at the root of the workspace to introduce the repository, outline its features, and link to the maintenance guide.
+- **Agent Context Persistence**: Created [`.antigravity/`](file:///e:/gloveman.github.io/.antigravity) folder at the repository root and copied all the planning/design artifacts (`implementation_plan.md`, `task.md`, `walkthrough.md`, `portfolio_projects.md`) to guarantee that future Antigravity sessions on other machines can seamlessly load and understand the history of this workspace.
 
 ## Verification & Status
 
@@ -39,4 +40,5 @@ This document summarizes the changes made to resolve issues with the Hugo portfo
   - `docs: adjust nlp-project date to avoid future-dating`
   - `docs: add portfolio maintenance and content modification guide`
   - `docs: add README with introduction and links to maintenance guide`
+  - `chore: save agent context and planning artifacts in repository`
 - All local commits have been pushed successfully to the remote `main` branch.

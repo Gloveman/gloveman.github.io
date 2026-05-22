@@ -1,0 +1,10 @@
+#!/bin/sh
+# .githooks/pre-commit
+# 커밋 시점에 자동으로 sync_artifacts.ps1을 실행하여 최신 작업/설계 상태를 스테이징합니다.
+
+echo "🔄 Synchronizing Antigravity artifacts before commit..."
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "./sync_artifacts.ps1"
+
+# 동기화된 .antigravity 폴더의 파일들을 자동으로 스테이지에 추가
+git add .antigravity/
+echo "✅ Antigravity artifacts synchronized and staged!"
